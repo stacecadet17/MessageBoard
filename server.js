@@ -24,7 +24,7 @@ var MessageSchema = new mongoose.Schema({
   name: String,
   message: String,
   _comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}]
-});
+}, { timestamps: true});
 
 MessageSchema.path('name').required(true, "Name cannot be blank");
 MessageSchema.path('message').required(true, "Message cannot be blank");
@@ -35,7 +35,7 @@ var CommentSchema = new mongoose.Schema({
   name: String,
   text: String,
   _message: {type: Schema.Types.ObjectId, ref: 'Message'}
-});
+}, { timestamps: true });
 
 CommentSchema.path('name').required(true, "Name cannot be blank");
 CommentSchema.path('text').required(true, 'Comment cannot be blank');
